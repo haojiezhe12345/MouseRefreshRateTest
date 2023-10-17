@@ -6,8 +6,36 @@
         xmlns:local="clr-namespace:MouseRefreshRateTest"
         mc:Ignorable="d"
         Title="Mouse Refresh Rate Tester" Height="450" Width="800" Loaded="Window_Loaded" MouseMove="count_plus" WindowState="Maximized" Closing="Window_Closing">
-    <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Height="96">
-        <Label x:Name="label1" Content="0" FontSize="36" HorizontalAlignment="Center"/>
-        <Label Content="Move your mouse in circle to start test" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+    
+    <Grid>
+        
+        <Canvas x:Name="histogram" HorizontalAlignment="Right" RenderTransformOrigin="0.5,0.5">
+            <Canvas.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform x:Name="histogramTranslate" X="0"/>
+                </TransformGroup>
+            </Canvas.RenderTransform>
+            <Rectangle Width="4" Fill="Lime" Height="100" Canvas.Bottom="0" Canvas.Right="0"/>
+        </Canvas>
+        
+        <TextBlock Text="8ms | 125Hz" Background="White" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,0,100" />
+        <TextBlock Text="4ms | 250Hz" Background="White" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,0,50" />
+        <TextBlock Text="2ms | 500Hz" Background="White" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,0,25" />
+        <TextBlock Text="1ms | 1000Hz" Background="White" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,0,12.5" />
+        <Rectangle Fill="Black" Height="1" VerticalAlignment="Bottom" Margin="0,0,0,100"/>
+        <Rectangle Fill="Black" Height="1" VerticalAlignment="Bottom" Margin="0,0,0,50"/>
+        <Rectangle Fill="Black" Height="1" VerticalAlignment="Bottom" Margin="0,0,0,25"/>
+        <Rectangle Fill="Black" Height="1" VerticalAlignment="Bottom" Margin="0,0,0,12.5"/>
+
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Height="96">
+            <Label x:Name="label1" Content="0" FontSize="36" HorizontalAlignment="Center"/>
+            <Label Content="Move your mouse in circle to start test" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+        </Grid>
+        
+        <Grid Background="Transparent" />
+        <CheckBox x:Name="showGraph" HorizontalAlignment="Left" VerticalAlignment="Bottom" Content="Show graph (maybe slow!)" IsChecked="True" Margin="0,0,0,100" />
     </Grid>
 </Window>
